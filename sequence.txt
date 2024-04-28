@@ -1,0 +1,12 @@
+title Song Recommendation
+
+User->.com: inputs their thoughts
+.com -> my api: get song recommendation
+my api-> +rules: get song recommendation
+note right of rules: thinks about it
+rules -> my api: returns a song id
+destroy rules
+my api -> public api: pass in song in to get /songs/{id}
+public api -> my api: returns song details
+my api -> .com: provides song and song details
+.com -> User: presents song details and link

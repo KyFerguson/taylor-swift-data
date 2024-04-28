@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="icon" href="https://www.suggest.com/wp-content/uploads/2024/04/matty-healys-aunt-hints-at-what-went-on-between-him-and-taylor-swift-after-ttpd-release.jpg?w=768" type="image/x-icon">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Taylor Swift Song Selector</title>
+    <script>
+        function handleClick() {
+            var input = document.getElementById("inputField").value;
+            console.log("Button clicked!");
+            console.log("Input: " + input);
+            makeApiCall(input);
+        }
+
+        function makeApiCall(userInput) {
+            // Make the API call with the user input as a query parameter
+            fetch("https://taylor-swift-api.sarbo.workers.dev/songs/" + userInput, {
+            headers: {
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5500/index.html#'
+            }
+            })
+            .then(function(response) {
+                // Parse the response as JSON
+                return response.json();
+            })
+            .then(function(data) {
+                // Handle the API response and display the results
+                var resultsContainer = document.getElementById("song");
+                resultsContainer.innerHTML = "API Response: " + JSON.stringify(data);
+            })
+            .catch(function(error) {
+                // Handle any errors that occur during the API call
+                console.error("API Error:", error);
+            });
+        }
+
+        // Call the makeApiCall function with the user input
+        var input = document.getElementById("inputField").value;
+        makeApiCall(input);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Taylor Swift Song Selector</h1>
+        <p>Tells us what you're thinking and a robot will pick the perfect Taylor Swift song for the moment.</p>
+        <input type="text" id="inputField" placeholder="Enter your thoughts...">
+        <button id="button" onclick="handleClick()">Click me!</button>
+        <p id="song"></p> </div>
+    <div id="app"></div>
+  
+</body>
+</html>
