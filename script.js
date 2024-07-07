@@ -20,7 +20,6 @@ const displayLyrics = async () => {
         <div class='container'>
         <div class='titleLabel'>Recommended Song</div>
         <div class='songName'>${name}</div>
-        <div class='lyricsLabel'>Lyrics</div>
         <div class='lyrics'>${lyrics}</div>
         </div>
         `
@@ -29,4 +28,6 @@ const displayLyrics = async () => {
     display.innerHTML = dataDisplay.join('');
 }
 
-displayLyrics();
+document.getElementById('button').addEventListener('click', () => {
+    displayLyrics();
+});
