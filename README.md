@@ -21,3 +21,4 @@ Here's a list of helpful sources of information I used along the way:
 - On enviormental variables - https://dev.to/dangtony98/doing-much-better-than-your-env-file-46bg
 - Javascript & Jquery - Interactive front-end web development by Jon Duckett
   - https://www.thriftbooks.com/w/javascript-and-jquery-interactive-front-end-web-development/9137924/?resultid=fef98c30-108d-4a00-b786-ab2c93487621#edition=7944256&idiq=7244525
+- Mapping values from the API onto the screen - https://www.youtube.com/watch?v=pHxx4j4atuw 
