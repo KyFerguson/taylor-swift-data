@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Taylor Swift Song Selector</title>
+        <link rel="icon" href="tswift1.jpg">
+    </head>
+    <header> 
+        <nav>
+            <ul>
+                <li><a href="randomSong.html">Index</a></li>
+                <li><a href="tagging-app/tagger.html">Tagger</a></li>
+                <li><a href="https://github.com/KyFerguson/taylor-swift-data">GitHub</a></li>
+            </ul>
+        </nav>
+            </header>
+    <body>
+        <div class="container">
+            <h1>Taylor Swift Song Selector</h1>
+            <p>This input box doesn't do anything yet.</p>
+            <input type="text" id="inputField" placeholder="Enter your thoughts...">
+            <button id="button" onclick="handleClick()">Click me!</button>
+            </div>
+            <script>
+                function handleClick() {
+                    var script = document.createElement('script');
+                    script.src = 'randomSong.js';
+                    document.body.appendChild(script);
+                }
+            </script>
+            <div id="display-data"></div>
+    </body>
+</html>

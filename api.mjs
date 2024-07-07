@@ -9,7 +9,6 @@ dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 
-// Use cors for cross-origin requests
 app.use(cors());
 
 const connection = createConnection({
@@ -21,7 +20,7 @@ const connection = createConnection({
 });
 
 dotenv.config();
-console.log(process.env.DB_HOST); // Should print the value of DB_HOST
+console.log(process.env.DB_HOST);
 
 connection.connect((err) => {
     if (err) {
@@ -33,7 +32,7 @@ connection.connect((err) => {
 
 
 app.get('/randomSong', (req, res) => {
-    connection.query('SELECT name, lyrics FROM songs s join lyrics l on l.song_id = s.id  ORDER BY RAND() LIMIT 1', (err, results) => {
+    connection.query('SELECT name, lyrics FROM songs s join lyrics l on l.song_id = s.id  ORDER BY RAND() LIMIT 1;', (err, results) => {
         if (err) {
             console.log('Error fetching lyrics');
             res.status(500).send('Error fetching lyrics');
@@ -42,6 +41,18 @@ app.get('/randomSong', (req, res) => {
         res.json(results);
     });
 }); 
+
+app.get('/tagList', (req, res) => {
+    connection.query('SELECT * FROM tags;', (err, results) => {
+        if (err) {
+            console.log('Error fetching tags');
+            res.status(500).send('Error fetching tags');
+            return;
+        }
+        res.json(results);
+    });
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

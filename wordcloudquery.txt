@@ -1,0 +1,21 @@
+SELECT SUM(total_count) as total, value
+FROM (
+    SELECT count(*) AS total_count, REPLACE(REPLACE(REPLACE(x.value, '>', ' '), '.', ''), '!', '') AS value
+    FROM (
+        SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(t.sentence, ' ', n.n), ' ', -1) AS value
+        FROM table_name t
+        CROSS JOIN (
+            SELECT a.N + b.N * 10 + 1 AS n
+            FROM (
+                SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+            ) a
+            CROSS JOIN (
+                SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+            ) b
+            ORDER BY n
+        ) n
+        WHERE n.n <= 1 + (LENGTH(t.sentence) - LENGTH(REPLACE(t.sentence, ' ', '')))
+    ) AS x
+    GROUP BY x.value
+) AS y
+GROUP BY value;

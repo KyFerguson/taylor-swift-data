@@ -17,10 +17,47 @@ body {
     border-radius: 10px;
 }
 
+/* Navigation bar styling */
+nav {
+    background-color: #d387c6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+nav a:hover {
+    background-color: #8f107a;
+    border-radius: 5px;
+}
+
 /* Styling the heading */
 h1 {
     color: #d387c6;
     text-align: center;
+}
+
+h2 {
+    color: #d387c6;
+    text-align: center;
+    text-size-adjust: 75%;
 }
 
 /* Paragraph styling */
@@ -95,3 +132,16 @@ button:hover {
     color: #666; /* Medium grey color */
     white-space: pre-wrap; /* Preserves spaces and line breaks */
   }
+
+  .tagCheckbox {
+    /* Example style for checkboxes */
+    margin: 5px;
+    cursor: pointer;
+}
+
+.tagNameLabel {
+    /* Example style for labels */
+    margin-left: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
